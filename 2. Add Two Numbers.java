@@ -1,0 +1,60 @@
+/*
+ * You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 0 -> 8
+ */
+
+class ListNode {
+     int val;
+     ListNode next;
+     ListNode(int x) {
+         val = x;
+         next = null;
+     }
+ }
+ 
+class Solution {
+	    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+	    	ListNode result = new ListNode(0);
+	    	ListNode r1 = result;
+	    	int carry = 0;
+	    	while(l1!=null || l2!=null || carry!=0){
+	    		int value = carry;
+	    		if(l1!=null){
+	    			value += l1.val;
+	    			l1 = l1.next;
+	    		}
+	    		if(l2!=null){
+	    			value += l2.val;
+	    			l2 = l2.next;
+	    		}
+	    		if(value>=10)
+	    		{
+	    			value = value%10;
+	    			carry = 1;
+	    		}else{
+	    			carry = 0;
+	    		}
+	    		ListNode rt = new ListNode(value);
+	    		r1.next = rt;
+	    		r1 = rt;
+	    	}	    	
+	        return result.next;
+	    }
+	}
+
+public class AddTwoNumbers {
+	public static void main(String[] args){
+		ListNode l1 = new ListNode(9);
+		ListNode l2 = new ListNode(9);
+		Solution s = new Solution();
+		ListNode r = s.addTwoNumbers(l1, l2);
+		System.out.print(r.val);
+		while(r.next!=null){
+			r = r.next;
+			System.out.print("->"+r.val);
+		}
+	}
+	
+}
