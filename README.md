@@ -1,4 +1,4 @@
 # MyLeetCodeSolution
-## My Solutions for [LeetCode](https://leetcode.com/) Problems.
+## My Solutions for [LeetCode](https://leetcode.com/) Algorithms Problems.
 
-* Problems are solved by C++ or Java.
+* Problems are mostly solved by C++ or Java.
